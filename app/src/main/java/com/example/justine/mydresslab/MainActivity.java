@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -27,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTitle = "test";
+        mTitle = "Vetements et accessoires";
 
         mDrawerListValues = getResources().getStringArray(R.array.drawer_list_values);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -37,6 +42,60 @@ public class MainActivity extends ActionBarActivity {
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_layout, mDrawerListValues));
+        mDrawerList.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return mDrawerListValues.length;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return mDrawerListValues[position];
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+                View view = inflater.inflate(R.layout.drawer_layout, parent, false);
+
+                ImageView icon = (ImageView) view.findViewById(R.id.icon);
+                TextView description = (TextView) view.findViewById(R.id.description_text_view);
+
+                int resource = 0;
+
+                if(position == 0){
+                    resource = R.drawable.teeshirt;
+                }
+                else if(position == 1){
+                    resource = R.drawable.robe;
+                }
+                else if(position == 2){
+                    resource = R.drawable.pantalon;
+                }
+                else if(position == 3){
+                    resource = R.drawable.sousvetement2;
+                }
+                else if(position == 4){
+                    resource = R.drawable.sac;
+                }
+                else if(position == 5){
+                    resource = R.drawable.chaussure;
+                }
+                else{
+                    resource = R.drawable.veste;
+                }
+
+                icon.setImageResource(resource);
+                description.setText(mDrawerListValues[position]);
+
+                return view;
+            }
+        });
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -124,5 +183,6 @@ public class MainActivity extends ActionBarActivity {
             selectItem(position);
         }
     }
+
 
 }
