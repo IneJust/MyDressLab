@@ -9,25 +9,64 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
-    <string name="haut">Hauts</string>
-    <string name="robe">Robes</string>
+    <string name="hauts">Hauts</string>
+    <string name="robes">Robes</string>
     <string name="bas">Bas</string>
-    <string name="souvetements">Souvetements</string>
     <string name="accessoire">Accessoires</string>
     <string name="chaussures">Chaussures</string>
-    <string name="manteau">Manteaux</string>
+    <string name="manteaux">Manteaux</string>
     <string name="drawer_open">Ouvrir</string>
     <string name="drawer_close">Fermer</string>
-
+    <string name="tee_shirt">Tee Shirts</string>
+    <string name="manche_longue">Manches Longues</string>
+    <string name="pull">Pulls</string>
+    <string name="debardeur">Débardeurs</string>
+    <string name="pantalon">Pantalons</string>
+    <string name="shorts">Shorts</string>
+    <string name="jupe">Jupes</string>
+    <string name="tongue">Tongues</string>
+    <string name="talon">Talons</string>
+    <string name="botte">Bottes</string>
+    <string name="autre">Autre</string>
+    <string name="sac">Sacs</string>
+    <string name="lunette">Lunettes</string>
+    <string name="cravate">Cravates</string>
+    <string name="chapeau">Chapeaux</string>
 
     <string-array name="drawer_list_values">
-        <item>@string/haut</item>
-        <item>@string/robe</item>
+        <item>@string/hauts</item>
+        <item>@string/robes</item>
         <item>@string/bas</item>
-        <item>@string/souvetements</item>
         <item>@string/accessoire</item>
         <item>@string/chaussures</item>
-        <item>@string/manteau</item>
+        <item>@string/manteaux</item>
+    </string-array>
+
+    <string-array name="list_sstype_haut">
+        <item>@string/tee_shirt</item>
+        <item>@string/manche_longue</item>
+        <item>@string/pull</item>
+        <item>@string/debardeur</item>
+    </string-array>
+
+    <string-array name="list_sstype_bas">
+        <item>@string/pantalon</item>
+        <item>@string/shorts</item>
+        <item>@string/jupe</item>
+        </string-array>
+
+    <string-array name="list_sstype_chaussure">
+        <item>@string/tongue</item>
+        <item>@string/talon</item>
+        <item>@string/botte</item>
+        <item>@string/autre</item>
+        </string-array>
+
+    <string-array name="list_sstype_accessoire">
+        <item>@string/sac</item>
+        <item>@string/lunette</item>
+        <item>@string/cravate</item>
+        <item>@string/chapeau</item>
     </string-array>
 
 
