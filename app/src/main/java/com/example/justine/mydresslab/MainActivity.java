@@ -107,6 +107,9 @@ public class MainActivity extends ActionBarActivity {
                 else if(position == 4){
                     resource = R.drawable.chaussure;
                 }
+                else if(position == 6){
+                    resource = R.drawable.logo;
+                }
                 else{
                     resource = R.drawable.veste;
                 }
@@ -220,6 +223,10 @@ public class MainActivity extends ActionBarActivity {
                 ft.commit();
                 break;
             case("Manteaux"):
+                break;
+            case("Acceuil"):
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

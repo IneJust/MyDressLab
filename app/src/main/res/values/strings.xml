@@ -15,6 +15,7 @@
     <string name="accessoire">Accessoires</string>
     <string name="chaussures">Chaussures</string>
     <string name="manteaux">Manteaux</string>
+    <string name="acceuil">Acceuil</string>
     <string name="drawer_open">Ouvrir</string>
     <string name="drawer_close">Fermer</string>
     <string name="tee_shirt">Tee Shirts</string>
@@ -40,6 +41,7 @@
         <item>@string/accessoire</item>
         <item>@string/chaussures</item>
         <item>@string/manteaux</item>
+        <item>@string/acceuil</item>
     </string-array>
 
     <string-array name="list_sstype_haut">
