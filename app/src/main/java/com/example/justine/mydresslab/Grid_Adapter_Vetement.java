@@ -1,6 +1,7 @@
 package com.example.justine.mydresslab;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 public class Grid_Adapter_Vetement extends BaseAdapter{
 
         Context context;
-        ArrayList<Integer> imageId;
+        ArrayList<String> imageId;
         private static LayoutInflater inflater = null;
 
-        public Grid_Adapter_Vetement(Context context, ArrayList<Integer> prgmImages)
+        public Grid_Adapter_Vetement(Context context, ArrayList<String> prgmImages)
         {
             this.context=context;
             imageId=prgmImages;
@@ -37,7 +38,7 @@ public class Grid_Adapter_Vetement extends BaseAdapter{
 
         @Override
         public long getItemId(int position) {
-            return imageId.get(position);
+            return position;
         }
 
         public class Holder
@@ -54,7 +55,7 @@ public class Grid_Adapter_Vetement extends BaseAdapter{
             rowView = inflater.inflate(R.layout.cellule_fragment_vetement,null);
             holder.img=(ImageView) rowView.findViewById(R.id.image_cell_fragment);
 
-            holder.img.setImageResource(imageId.get(position));
+            holder.img.setImageURI(Uri.parse(imageId.get(position)));
 
             return rowView;
         }

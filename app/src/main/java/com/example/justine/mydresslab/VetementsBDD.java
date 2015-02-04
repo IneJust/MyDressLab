@@ -127,18 +127,28 @@ public class VetementsBDD {
                 + COL_SSTYPE + " = '" + sstype+ "';";
 
         Cursor c = bdd.rawQuery(selectQuery, null);
+        Vetements vet = new Vetements();
 
-        if (c != null) {
-            c.moveToFirst();
+
+        if(c.moveToFirst())
+        {
+            do {
+                vet.setType(c.getString(c.getColumnIndex(COL_TYPE)));
+                vet.setSsType(c.getString(c.getColumnIndex(COL_SSTYPE)));
+                vet.setLienPhoto(c.getString(c.getColumnIndex(COL_LIEN_PHOTO)));
+
+                vetements.add(vet);
+            }while(c.moveToNext());
         }
-        do {
-            Vetements vet = new Vetements();
-            vet.setType(c.getString(c.getColumnIndex(COL_TYPE)));
-            vet.setSsType(c.getString(c.getColumnIndex(COL_SSTYPE)));
-            vet.setLienPhoto(c.getString(c.getColumnIndex(COL_LIEN_PHOTO)));
+        else
+        {
+            vet.setType("NULL");
+            vet.setSsType("NULL");
+            vet.setLienPhoto("NULL");
 
             vetements.add(vet);
-        }while(c.moveToNext());
+        }
+
 
         return vetements;
     }

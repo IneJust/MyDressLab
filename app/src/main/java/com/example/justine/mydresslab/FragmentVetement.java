@@ -14,14 +14,11 @@ import java.util.ArrayList;
  */
 public class FragmentVetement extends Fragment {
 
-
-
-
-        private static ArrayList<Integer> images;
+        private static ArrayList<String> images;
 
         public FragmentVetement () {}
 
-        public static FragmentVetement getInstance(ArrayList<Integer> image)
+        public static FragmentVetement getInstance(ArrayList<String> image)
         {
             FragmentVetement instanceFragment = new FragmentVetement();
             images = image;
@@ -39,4 +36,10 @@ public class FragmentVetement extends Fragment {
             typeView.setAdapter(gridAdapter);
             return view;
         }
+
+        public void closefragment() {
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        }
+
+
 }
