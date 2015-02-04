@@ -14,13 +14,11 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
     private static final String COL_ID = "ID";
     private static final String COL_TYPE = "TYPE";
     private static final String COL_SSTYPE = "SSTYPE";
-    private static final String COL_COULEURVET = "COULEURVET";
     private static final String COL_LIEN_PHOTO = "LIEN_PHOTO";
 
     private static final String CREATE_BDD = "CREATE TABLE " + TABLE_VETEMENTS + " ("
             + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_TYPE + " TEXT NOT NULL, "
-            + COL_SSTYPE + " TEXT NOT NULL," + COL_COULEURVET + " TEXT NOT NULL,"
-            + COL_LIEN_PHOTO + " TEXT NOT NULL);";
+            + COL_SSTYPE + " TEXT NOT NULL," + COL_LIEN_PHOTO + " TEXT NOT NULL);";
 
 
     public MaBaseSQLite(Context context, String name, CursorFactory factory, int version) {

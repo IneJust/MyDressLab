@@ -60,8 +60,7 @@ public class Grid_Adapter extends BaseAdapter{
 
         holder.tv.setText(result[position]);
 
-            holder.img.setImageResource(imageId[position]);
-
+        holder.img.setImageResource(imageId[position]);
 
 
         return rowView;
