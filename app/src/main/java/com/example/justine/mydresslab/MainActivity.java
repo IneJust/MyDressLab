@@ -1,9 +1,9 @@
 package com.example.justine.mydresslab;
 
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -19,7 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class MainActivity extends ActionBarActivity {
 
     private String[] mDrawerListValues;
@@ -27,9 +26,9 @@ public class MainActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
+    private VetementsBDD vetementBDD;
 
-    //Création d'une instance de ma classe VetementsBDD
-    VetementsBDD vetementBDD = new VetementsBDD(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,17 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mTitle = "Vetements et accessoires";
+
+        //Création d'une instance de ma classe LivresBDD
+        vetementBDD = new VetementsBDD(this);
+
+        Vetements v = new Vetements("BAS", "Jupe", "jupe");
+        vetementBDD.open();
+        //vetementBDD.insererVetement(v);
+
+        Vetements vet = vetementBDD.recueper1vetement("Jupe");
+        System.out.println(vet.getType());
+        vetementBDD.close();
 
         mDrawerListValues = getResources().getStringArray(R.array.drawer_list_values);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -168,14 +178,11 @@ public class MainActivity extends ActionBarActivity {
         int[] image =null;
         String [] ssType = null;
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
         String choix = getResources().getStringArray(R.array.drawer_list_values)[position];
         switch (choix)
         {
             case("Hauts"):
-
-                vetementBDD.open();
-                //Vetements[] vetsFromBdd = vetementBDD.recupereTSdepuisType("HAUT");
                 ssType = getResources().getStringArray(R.array.list_sstype_haut);
                 ft.replace(R.id.fragment_placeholder, FragmentSsType.getInstance(ssType, new int[]{
                         R.drawable.teeshirtfondblanc, R.drawable.polofondblanc, R.drawable.pullfondblanc, R.drawable.debardeurfondblanc }));
@@ -228,4 +235,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public VetementsBDD getVetementBDD() {
+        return vetementBDD;
+    }
 }

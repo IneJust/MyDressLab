@@ -8,27 +8,24 @@ public class Vetements {
     private int id;
     private String type;
     private String ssType;
-    private String couleurVet;
     private String lienPhoto;
 
     public Vetements(){};
 
-    public Vetements(int id, String type, String ssType, String couleurVet, String lienPhoto)
+    public Vetements(int id, String type, String ssType, String lienPhoto)
     {
         super();
         this.id = id;
         this.type = type;
         this.ssType = ssType;
-        this.couleurVet = couleurVet;
         this.lienPhoto = lienPhoto;
     }
 
-    public Vetements(String type, String ssType, String couleurVet, String lienPhoto)
+    public Vetements(String type, String ssType, String lienPhoto)
     {
         super();
         this.type = type;
         this.ssType = ssType;
-        this.couleurVet = couleurVet;
         this.lienPhoto = lienPhoto;
     }
 
@@ -62,19 +59,9 @@ public class Vetements {
         this.ssType = ssType;
     }
 
-    public String getCouleurVet()
-    {
-        return couleurVet;
-    }
-
-    public void setCouleurVet(String couleurVet)
-    {
-        this.couleurVet = couleurVet;
-    }
-
     public String getLienPhoto()
     {
-        return couleurVet;
+        return lienPhoto;
     }
 
     public void setLienPhoto(String lienPhoto)
@@ -84,6 +71,6 @@ public class Vetements {
 
     public String totalite()
     {
-        return "TYPE : "+type+"\nSSTYPE : "+ssType+"\nCOULEUR : "+couleurVet+"\nLIEN_PHOTO : "+lienPhoto;
+        return "TYPE : "+type+"\nSSTYPE : "+ssType+"\nLIEN_PHOTO : "+lienPhoto;
     }
 }
