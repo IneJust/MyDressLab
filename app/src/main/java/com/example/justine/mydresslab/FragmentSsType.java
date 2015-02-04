@@ -46,13 +46,27 @@ public class FragmentSsType extends Fragment {
                 System.out.println(tv.toString());
                 if(tv.getText().equals("Tee Shirts"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Tee_shirt");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Manches Longues"))
                 {
                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
                     vetBDD.open();
-                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("manche_longue");
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Manche_longue");
                     for(Vetements vet : vets)
                     {
                         String lien = vet.getLienPhoto();
@@ -62,24 +76,77 @@ public class FragmentSsType extends Fragment {
                     ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
                     ft.commit();
                 }
-                else if(tv.getText().equals("Manches Longues"))
-                {
 
-                }
                 else if(tv.getText().equals("Pulls"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Pull");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Débardeurs"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Debardeur");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Pantalons"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Pantalon");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Shorts"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Short");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Jupes"))
@@ -102,34 +169,145 @@ public class FragmentSsType extends Fragment {
                 }
                 else if(tv.getText().equals("Tongues"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Tongue");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
 
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
                 }
                 else if(tv.getText().equals("Talons"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Talon");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Bottes"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Botte");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Autre"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Autre");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Sacs"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Sac");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Lunettes"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Lunette");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Cravates"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Cravate");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else if(tv.getText().equals("Chapeaux"))
                 {
+                    VetementsBDD vetBDD = ((MainActivity)getActivity()).getVetementBDD();
+                    vetBDD.open();
+                    ArrayList<Vetements> vets = vetBDD.recupereTSdepuisSsType("Chapeau");
+                    vetBDD.close();
+                    for(Vetements vet : vets)
+                    {
+                        String lien = vet.getLienPhoto();
+                        System.out.println(lien);
+                        int idLien = getActivity().getResources().getIdentifier(lien,"drawable",getActivity().getPackageName());
+                        image.add((Integer)idLien);
+                    }
+
+                    ft.replace(R.id.fragment_placeholder, FragmentVetement.getInstance(image));
+                    ft.commit();
 
                 }
                 else
