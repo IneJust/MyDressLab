@@ -45,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
     private String vetementAAjouter;
     private String vetementCategorie;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -224,7 +225,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case("Manteaux"):
                 break;
-            case("Acceuil"):
+            case("Accueil"):
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
