@@ -69,6 +69,26 @@
         <item>@string/chapeau</item>
     </string-array>
 
+    <string-array name="list_sstype">
+        <item>@string/tee_shirt</item>
+        <item>@string/manche_longue</item>
+        <item>@string/pull</item>
+        <item>@string/debardeur</item>
+        <item>@string/pantalon</item>
+        <item>@string/shorts</item>
+        <item>@string/jupe</item>
+        <item>@string/tongue</item>
+        <item>@string/talon</item>
+        <item>@string/botte</item>
+        <item>@string/autre</item>
+        <item>@string/sac</item>
+        <item>@string/lunette</item>
+        <item>@string/cravate</item>
+        <item>@string/chapeau</item>
+        <item>@string/manteaux</item>
+        <item>@string/robes</item>
+    </string-array>
+
 
 
 </resources>

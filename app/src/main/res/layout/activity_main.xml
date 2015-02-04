@@ -10,21 +10,180 @@
         android:id="@+id/fragment_placeholder"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-    >
-        <Button
-            android:id="@+id/take_picture"
-            android:layout_width="match_parent"
+        android:layout_weight="1" >
+
+
+        <ScrollView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="takePicture"
-            android:text="Take picture"/>
+            android:id="@+id/scrollView"
+            android:layout_gravity="center">
 
-        <ImageView
-            android:id="@+id/picture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </FrameLayout>
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tee_shirt"
+                        android:id="@+id/radioButtontee_shirt"
+                        android:onClick="onRadioButtonClicked"
+                    />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/manche_longue"
+                        android:id="@+id/radioButtonmanche_longue"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pull"
+                        android:id="@+id/radioButtonpull"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/debardeur"
+                        android:id="@+id/radioButtondebardeur"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pantalon"
+                        android:id="@+id/radioButtonpantalon"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shorts"
+                        android:id="@+id/radioButtonshorts"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jupe"
+                        android:id="@+id/radioButtonjupe"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tongue"
+                        android:id="@+id/radioButtontongue"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/talon"
+                        android:id="@+id/radioButtontalon"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/botte"
+                        android:id="@+id/radioButtonbotte"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/autre"
+                        android:id="@+id/radioButtonautre"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sac"
+                        android:id="@+id/radioButtonsac"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lunette"
+                        android:id="@+id/radioButtonlunette"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cravate"
+                        android:id="@+id/radioButtoncravate"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chapeau"
+                        android:id="@+id/radioButtonchapeau"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/manteaux"
+                        android:id="@+id/radioButtonmanteaux"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/robes"
+                        android:id="@+id/radioButtonrobes"
+                        android:onClick="onRadioButtonClicked"
+                        />
+
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/take_picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="takePicture"
+                    android:text="Ajouter un vêtement"
+                    android:layout_gravity="left|bottom"
+                />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
 
 
 

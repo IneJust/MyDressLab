@@ -41,35 +41,31 @@ public class MainActivity extends ActionBarActivity {
     private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
     private VetementsBDD vetementBDD;
-
-
+    private String[] mListSousTypesValues;
+    private String vetementAAjouter;
+    private String vetementCategorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mTitle = "Vetements et accessoires";
-
-        //Création d'une instance de ma classe LivresBDD
+        //Création d'une instance Jupe dans la BDD
         vetementBDD = new VetementsBDD(this);
-
         Vetements v = new Vetements("BAS", "Jupe", "jupe");
         vetementBDD.open();
         //vetementBDD.insererVetement(v);
-
         Vetements vet = vetementBDD.recueper1vetement("Jupe");
-        System.out.println(vet.getType());
         vetementBDD.close();
+        mListSousTypesValues = getResources().getStringArray(R.array.list_sstype);
+
+
 
         mDrawerListValues = getResources().getStringArray(R.array.drawer_list_values);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-
         // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_layout, mDrawerListValues));
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this,R.layout.drawer_layout, mDrawerListValues));
         mDrawerList.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -235,6 +231,76 @@ public class MainActivity extends ActionBarActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
+    public void onRadioButtonClicked(View view){
+        int id = view.getId();
+        if (R.id.radioButtontee_shirt == id) {
+            vetementAAjouter = "Teeshirt";
+            vetementCategorie = "HAUT";
+        }
+        else if (R.id.radioButtonmanche_longue == id) {
+            vetementAAjouter = "Manchelongue";
+            vetementCategorie = "HAUT";
+        }
+        else if (R.id.radioButtonpull == id) {
+            vetementAAjouter = "Pull";
+            vetementCategorie = "HAUT";
+        }
+        else if (R.id.radioButtondebardeur == id) {
+            vetementAAjouter = "Debardeur";
+            vetementCategorie = "HAUT";
+        }
+        else if (R.id.radioButtonpantalon == id) {
+            vetementAAjouter = "Pantalon";
+            vetementCategorie = "BAS";
+        }
+        else if (R.id.radioButtonshorts == id) {
+            vetementAAjouter = "Short";
+            vetementCategorie = "BAS";
+        }
+        else if (R.id.radioButtonjupe == id) {
+            vetementAAjouter = "Jupe";
+            vetementCategorie = "BAS";
+        }
+        else if (R.id.radioButtontongue == id) {
+            vetementAAjouter = "Tongue";
+            vetementCategorie = "CHAUSSURE";
+        }
+        else if (R.id.radioButtontalon == id) {
+            vetementAAjouter = "Talon";
+            vetementCategorie = "CHAUSSURE";
+        }
+        else if (R.id.radioButtonbotte == id) {
+            vetementAAjouter = "Botte";
+            vetementCategorie = "CHAUSSURE";
+        }
+        else if (R.id.radioButtonautre == id) {
+            vetementAAjouter = "Autre";
+            vetementCategorie = "CHAUSSURE";
+        }
+        else if (R.id.radioButtonsac == id) {
+            vetementAAjouter = "Sac";
+            vetementCategorie = "ACCESSOIRE";
+        }
+        else if (R.id.radioButtonlunette == id) {
+            vetementAAjouter = "Lunette";
+            vetementCategorie = "ACCESSOIRE";
+        }
+        else if (R.id.radioButtonchapeau == id) {
+            vetementAAjouter = "Chapeau";
+            vetementCategorie = "ACCESSOIRE";
+        }
+        else if (R.id.radioButtoncravate == id) {
+            vetementCategorie = "ACCESSOIRE";
+        }
+        else if (R.id.radioButtonrobes == id) {
+            vetementAAjouter = "Robe";
+            vetementCategorie = "ROBE";
+        }else {
+            vetementAAjouter = "Manteau";
+            vetementCategorie = "MANTEAU";
+        }
+    }
+
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
@@ -251,6 +317,7 @@ public class MainActivity extends ActionBarActivity {
     public VetementsBDD getVetementBDD() {
         return vetementBDD;
     }
+
     public void takePicture(View view){
         dispatchTakePictureIntent();
     }
@@ -260,23 +327,6 @@ public class MainActivity extends ActionBarActivity {
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-    /*    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-          try {
-                photoFile = createImageFile();
-           } catch (IOException ex) {
-                // Error occurred while creating the File
-                ex.printStackTrace();
-            }
-           // Continue only if the File was successfully created
-           if (photoFile != null) {
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                        Uri.fromFile(photoFile));
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-             }
-        }
-        */
     }
 
     @Override
@@ -294,14 +344,18 @@ public class MainActivity extends ActionBarActivity {
             try {
                 photo = createImageFile();
             } catch (IOException ex) {
-                // Error occurred while creating the File
                 ex.printStackTrace();
             }
             FileOutputStream imageOutFile;
+            vetementBDD = new VetementsBDD(this);
              try {
                  imageOutFile = new FileOutputStream(Uri.fromFile(photo).getPath());
                  imageOutFile.write(imageByte);
                  imageOutFile.close();
+                 Vetements v = new Vetements(vetementCategorie,vetementAAjouter,Uri.fromFile(photo).toString());
+                 vetementBDD.open();
+                 vetementBDD.insererVetement(v);
+                 vetementBDD.close();
              } catch (FileNotFoundException e) {
                  e.printStackTrace();
              } catch (IOException e) {

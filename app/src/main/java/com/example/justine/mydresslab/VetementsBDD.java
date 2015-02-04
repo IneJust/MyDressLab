@@ -84,10 +84,11 @@ public class VetementsBDD {
 
         Cursor c = bdd.rawQuery(selectQuery, null);
         if (c != null) {
-            c.moveToFirst();
-            v.setType(c.getString(c.getColumnIndex(COL_TYPE)));
-            v.setSsType(c.getString(c.getColumnIndex(COL_SSTYPE)));
-            v.setLienPhoto(c.getString(c.getColumnIndex(COL_LIEN_PHOTO)));
+            if(c.moveToFirst()){
+                v.setType(c.getString(c.getColumnIndex(COL_TYPE)));
+                v.setSsType(c.getString(c.getColumnIndex(COL_SSTYPE)));
+                v.setLienPhoto(c.getString(c.getColumnIndex(COL_LIEN_PHOTO)));
+            }
         }
         return v;
 
